@@ -1,7 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
-import Users from "../modules/ShemaUser";
+import Users from "../modules/UserSchema";
 import { LOCAL_HOST, SECRET_WORD } from "../variables/variables";
 import jwt from "jsonwebtoken";
 

@@ -1,14 +1,17 @@
 import express from "express";
 import authRoute from "./routers/auth";
 import homeRoute from "./routers/home";
+import tasksRouter from './routers/tasks';
 import mongoose from "mongoose";
 import { CONNECT_MONGODB } from "./variables/variables";
+
 
 const app = express();
 const PORT = 5001;
 
 app.use(authRoute);
 app.use(homeRoute);
+app.use(tasksRouter);
 
 const start = async () => {
    try {
