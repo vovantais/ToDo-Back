@@ -3,3 +3,5 @@ export const CONNECT_MONGODB = 'mongodb+srv://Vladimir:vladimir02021997@cluster0
 export const LOCAL_HOST = 'http://localhost:3000';
 
 export const SECRET_WORD = "SECRET";
+
+export const SALT_ROUNDS = 10;

@@ -3,7 +3,7 @@ import { Schema, model } from "mongoose";
 const schemaUser = new Schema({
    Name: {
       type: String,
-      required: true,
+      required: [true, 'Name is required.'],
       unique: true,
       validate: {
          validator: (str) => (str.length > 3),
@@ -13,9 +13,9 @@ const schemaUser = new Schema({
    Token: {
       type: String,
    },
-   Password: {
+   pwdHash: {
       type: String,
-      required: true,
+      required: [true, 'Password is required.'],
       validate: {
          validator: (str) => (str.length > 8),
          message: "This password must be more 8 symbols!",
