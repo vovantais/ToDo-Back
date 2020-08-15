@@ -18,7 +18,7 @@ export const getTasks = async (req, res, next) => {
 export const postTask = async (req, res, next) => {
    let MessageResult;
    await Task.create({
-      title: req.body.title,
+      value: req.body.value,
    })
       .then(res => {
          MessageResult = {
@@ -59,20 +59,19 @@ export const putTask = async (req, res, next) => {
 };
 
 export const deleteTask = async (req, res, next) => {
-   let MessageResult;
-   await Task.findByIdAndDelete(req.body.id)
-      .then(res => {
-         MessageResult = {
-            message: 'Task delete successfully!',
-            type: "Seccess!",
-            // ToDo 
-         };
+   console.log(req.body);
+   const tasks = await Task.find({})
+   if (!tasks) {
+      return res.status(404).json({
+         message: 'Error happend during deleting! Such task isn`t find',
+         type: 'Error',
       })
-      .catch(err => {
-         MessageResult = {
-            message: 'Error happend during deleting! Such task isn`t find',
-            type: 'Error',
-         };
-      });
-   await res.json(MessageResult);
+   }
+   tasks.splice(req.body.indexId, 1);
+   // Todo
+   // await tasks.save();
+   res.status(200).json({
+      message: 'Task delete successfully!',
+      type: 'Seccess',
+   })
 };

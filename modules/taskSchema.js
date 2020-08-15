@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
 const taskSchema = new Schema({
-   title: {
+   value: {
       type: String,
       validate: {
          validator: str => (str.length > 5),

@@ -3,7 +3,7 @@ import * as tasksController from '../controllers/tasks';
 
 const tasksRouter = express.Router();
 
-tasksRouter.route('/')
+tasksRouter.route('/tasks')
    .get(tasksController.getTasks)
    .post(tasksController.postTask)
    .put(tasksController.putTask)
